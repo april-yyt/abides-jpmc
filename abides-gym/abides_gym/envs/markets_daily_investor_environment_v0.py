@@ -71,6 +71,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         marked_to_market: List[float] = field(default_factory=list)
         dense_reward: float = 0
         sparse_reward: float = 0
+        raw_state: Dict[str, Any] = field(default_factory=dict)
 
 	
 
@@ -310,6 +311,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         self.custom_metrics_tracker.padded_return = padded_returns[-1]
         self.custom_metrics_tracker.spread = spreads[-1]
         self.custom_metrics_tracker.direction_feature = direction_features[-1]
+        self.custom_metrics_tracker.raw_state = raw_state
 
         # 6) Compute State (Holdings, Imbalance, Spread, DirectionFeature + Returns)
         computed_state = np.array(
@@ -330,6 +332,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         Returns:
             - reward: immediate reward computed at each step  for the daily investor v0 environnement
         """
+
         if self.reward_mode == "dense":
             # Sparse Reward here
             # Agents get reward at the end of the episode
@@ -383,6 +386,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         Returns:
             - reward: update reward computed at the end of the episode for the daily investor v0 environnement
         """
+
         if self.reward_mode == "dense":
             return 0
 
@@ -427,6 +431,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         Returns:
             - done: flag that describes if the episode is terminated or not  for the daily investor v0 environnement
         """
+
         # episode can stop because market closes or because some condition is met
         # here choose to make it trader has lost too much money
         # 1) Holdings
@@ -461,6 +466,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         Returns:
             - reward: info dictionnary computed at each step for the daily investor v0 environnement
         """
+
         # Agent cannot use this info for taking decision
         # only for debugging
 
