@@ -80,7 +80,7 @@ or by using the following BibTeX:
 1. Download the ABIDES source code, either directly from GitHub or with git:
 
     ```bash
-    git clone https://github.com/jpmorganchase/abides-jpmc-public
+    git clone https://github.com/Tina-Lijie-Liu/abides-jpmc-public
     ```
 
     **Note:** The latest stable version is contained within the `main` branch.
