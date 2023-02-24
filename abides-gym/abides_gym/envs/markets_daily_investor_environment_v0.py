@@ -509,4 +509,4 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
                 "marked_to_market": marked_to_market,
             }
         else:
-            return {}
+            return asdict(self.custom_metrics_tracker)
