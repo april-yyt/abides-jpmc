@@ -49,6 +49,26 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
     raw_state_to_state_pre_process = (
         markets_agent_utils.ignore_mkt_data_buffer_decorator
     )
+    
+    @dataclass 
+    class CustomMetricsTracker(ABC): 
+    """ 
+    Data Class used to track custom metrics that are output to rllib 
+    """ 
+      slippage_reward: float = 0 
+    late_penalty_reward: float = 0 # at the end of the episode 
+      executed_quantity: int = 0 # at the end of the episode 
+    remaining_quantity: int = 0 # at the end of the episode 
+      action_counter: Dict[str, int] = field(default_factory=dict) 
+      holdings_pct: float = 0 
+    time_pct: float = 0 
+    diff_pct: float = 0 
+    imbalance_all: float = 0 
+    imbalance_5: float = 0 
+    price_impact: int = 0 
+    spread: int = 0 
+    direction_feature: float = 0 
+    num_max_steps_per_episode: float = 0 
 
     def __init__(
         self,
