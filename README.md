@@ -90,8 +90,9 @@ or by using the following BibTeX:
     ```
     sh install.sh
     ```
-3.the path of complex_input_net.py: /lib/python3.9/site-packages/ray/rllib/models/torch
-the path of torch_policy.py: /lib/python3.9/site-packages/ray/rllib/policy
+3.replace two files. 
+  the path of complex_input_net.py: /lib/python3.9/site-packages/ray/rllib/models/torch
+  the path of torch_policy.py: /lib/python3.9/site-packages/ray/rllib/policy
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
