@@ -541,6 +541,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
                 "ask_spread": ask_spread,
                 "bid_spread": bid_spread,
                 "marked_to_market": marked_to_market,
+                "raw_state": raw_state
             }
         else:
             return asdict(self.custom_metrics_tracker)
