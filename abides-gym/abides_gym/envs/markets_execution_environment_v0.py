@@ -86,7 +86,7 @@ class SubGymMarketsExecutionEnv_v0(AbidesGymMarketsEnv):
         spread: int = 0
         direction_feature: float = 0
         num_max_steps_per_episode: float = 0
-        raw_state: Dict[str, Any] = field(default_factory=dict)        
+        #raw_state: Dict[str, Any] = field(default_factory=dict)        
 
     def __init__(
         self,
@@ -337,7 +337,7 @@ class SubGymMarketsExecutionEnv_v0(AbidesGymMarketsEnv):
         Returns:
             - state: state representation defining the MDP for the execution v0 environnement
         """
-        print(raw_state)
+        #print(raw_state)
         # 0) Preliminary
         bids = raw_state["parsed_mkt_data"]["bids"]
         asks = raw_state["parsed_mkt_data"]["asks"]
@@ -441,7 +441,7 @@ class SubGymMarketsExecutionEnv_v0(AbidesGymMarketsEnv):
         self.custom_metrics_tracker.price_impact = price_impact
         self.custom_metrics_tracker.spread = spread
         self.custom_metrics_tracker.direction_feature = direction_feature
-        self.custom_metrics_tracker.raw_state = raw_state
+        #self.custom_metrics_tracker.raw_state = raw_state
 
         # 8) Computed State
         computed_state = np.array(
