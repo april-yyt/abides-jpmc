@@ -71,7 +71,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         marked_to_market: List[float] = field(default_factory=list)
         dense_reward: float = 0
         sparse_reward: float = 0
-        raw_state: Dict[str, Any] = field(default_factory=dict)
+        #raw_state: Dict[str, Any] = field(default_factory=dict)
 
 	
 
@@ -311,7 +311,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
         self.custom_metrics_tracker.padded_return = padded_returns[-1]
         self.custom_metrics_tracker.spread = spreads[-1]
         self.custom_metrics_tracker.direction_feature = direction_features[-1]
-        self.custom_metrics_tracker.raw_state = raw_state
+        #self.custom_metrics_tracker.raw_state = raw_state
 
         # 6) Compute State (Holdings, Imbalance, Spread, DirectionFeature + Returns)
         computed_state = np.array(
@@ -547,7 +547,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
                 "ask_spread": ask_spread,
                 "bid_spread": bid_spread,
                 "marked_to_market": marked_to_market,
-                "raw_state": raw_state
+                #"raw_state": raw_state
             }
         else:
             return asdict(self.custom_metrics_tracker)
