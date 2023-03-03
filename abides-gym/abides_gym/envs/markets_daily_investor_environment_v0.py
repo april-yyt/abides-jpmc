@@ -352,8 +352,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
             marked_to_market = cash + holdings * last_transaction
 
             # 5) Reward
-            #reward = marked_to_market - self.previous_marked_to_market
-            reward = (marked_to_market / self.previous_marked_to_market -1) * 1e8
+            reward = marked_to_market - self.previous_marked_to_market
 
             # 6) Order Size Normalization of Reward
             reward = reward / self.order_fixed_size
@@ -403,8 +402,7 @@ class SubGymMarketsDailyInvestorEnv_v0(AbidesGymMarketsEnv):
 
             # 4) compute the marked to market
             marked_to_market = cash + holdings * last_transaction
-            #reward = marked_to_market - self.starting_cash
-            reward = (marked_to_market / self.starting_cash -1) * 1e8
+            reward = marked_to_market - self.starting_cash
 
             # 5) Order Size Normalization of Reward
             reward = reward / self.order_fixed_size
